@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Support | Slate Protocol</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0F172A",
+                        "secondary": "#506076",
+                        "surface": "#f7f9fb",
+                        "background": "#f7f9fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; color: #0F172A; }
+        h1, h2, h3, .font-manrope { font-family: 'Manrope', sans-serif; }
+        .bot-bubble { border-radius: 0.75rem 0.75rem 0.75rem 0.125rem; }
+        .user-bubble { border-radius: 0.75rem 0.75rem 0.125rem 0.75rem; }
+        .high-fidelity-input:focus-within { box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.1); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+
+<body class="flex min-h-screen overflow-hidden bg-surface">
+    <main class="flex-1 flex flex-col h-[100dvh] relative bg-surface overflow-hidden">
+        <!-- Header -->
+        <header class="bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 md:px-8 py-4 md:py-6 sticky top-0 z-10">
+            <div class="max-w-4xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg shadow-slate-200">
+                        <span class="material-symbols-outlined">support_agent</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-extrabold font-manrope text-[#0F172A] tracking-tight">Support ChatBot</h1>
+                        <p class="text-xs text-slate-500 font-medium">Chatting with AI Chatbot</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Active Support</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <div id="chat-container" class="flex-1 overflow-y-auto px-4 md:px-6 py-6 md:py-12">
+            <div id="chat-messages" class="max-w-4xl mx-auto space-y-8">
+                <!-- AI messages will be injected here -->
+            </div>
+            <!-- Quick Replies Container -->
+            <div id="quick-replies" class="max-w-4xl mx-auto mt-6 flex flex-wrap gap-2">
+                <!-- Quick replies will be injected here -->
+            </div>
+            <!-- Spacing for footer -->
+            <div class="h-32"></div>
+        </div>
+
+        <!-- Input Footer -->
+        <footer class="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-surface via-surface to-transparent">
+            <div class="max-w-4xl mx-auto">
+                <div class="high-fidelity-input bg-white border border-slate-200 rounded-2xl shadow-xl flex flex-col overflow-hidden transition-all">
+                    <div class="flex items-center p-3 gap-3">
+                        <button class="flex items-center justify-center w-10 h-10 text-slate-400 hover:text-primary hover:bg-slate-50 rounded-xl transition-all">
+                            <span class="material-symbols-outlined">restart_alt</span>
+                        </button>
+                        <textarea id="user-input"
+                            class="flex-1 bg-transparent border-none focus:ring-0 text-slate-900 font-body text-sm py-2.5 resize-none h-11"
+                            placeholder="Type your message..."></textarea>
+                        <button id="send-btn"
+                            class="h-10 px-4 md:px-6 bg-primary hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center space-x-2 shadow-sm">
+                            <span class="hidden md:inline">SEND</span>
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
